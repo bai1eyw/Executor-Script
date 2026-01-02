@@ -21,13 +21,16 @@
 3. **Set up Environment Variables**:
    Create a `.env` file in the root directory and add:
    ```env
-   DATABASE_URL=your_postgresql_connection_string
    SESSION_SECRET=your_random_secret_string
    ```
+   *Note: If `DATABASE_URL` is not provided, the app will automatically use a local SQLite database (`sqlite.db`).*
 
 4. **Sync Database Schema**:
    ```bash
+   # If using PostgreSQL:
    npm run db:push
+   # If using SQLite:
+   npx drizzle-kit push:sqlite --schema=shared/schema.ts --driver=better-sqlite --out=migrations
    ```
 
 5. **Run the application**:
