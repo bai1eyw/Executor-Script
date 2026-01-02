@@ -89,6 +89,7 @@ export async function registerRoutes(
 
     // Simulate async execution
     // In a real app, this would queue a job
+    (async () => {
       try {
         await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate 3s delay
         

@@ -79,7 +79,7 @@ export default function ScriptsList() {
                {search ? "Try adjusting your search terms." : "Get started by creating your first script."}
              </p>
              {search && (
-               <Button variant="link" onClick={() => setSearch("")} className="mt-2">
+               <Button variant="ghost" onClick={() => setSearch("")} className="mt-2">
                  Clear filters
                </Button>
              )}

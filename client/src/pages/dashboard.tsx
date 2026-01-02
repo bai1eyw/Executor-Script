@@ -74,7 +74,7 @@ export default function Dashboard() {
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold tracking-tight">Your Scripts</h2>
           <Link href="/scripts">
-            <Button variant="link" className="text-primary group px-0">
+            <Button variant="ghost" className="text-primary group px-0">
               View All 
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
