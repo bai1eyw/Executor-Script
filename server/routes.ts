@@ -160,6 +160,12 @@ async function seed() {
       language: "luau",
       description: "Example cheat script for testing purposes"
     });
+    await storage.createScript({
+      name: "Dupe Items Script",
+      content: '-- WARNING: This is a simulation for educational purposes\nlocal player = game:GetService("Players").LocalPlayer\nlocal backpack = player:WaitForChild("Backpack")\n\nfunction dupe(itemName)\n    local item = backpack:FindFirstChild(itemName)\n    if item then\n        for i = 1, 10 do\n            item:Clone().Parent = backpack\n        end\n        print("Successfully duplicated " .. itemName)\n    else\n        print("Item not found: " .. itemName)\n    end\nend\n\ndupe("Brainrot")',
+      language: "luau",
+      description: "Simulation of an item duplication script for Steal a Brainrot"
+    });
   }
 }
 
