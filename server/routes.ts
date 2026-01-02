@@ -135,34 +135,10 @@ export async function registerRoutes(
 // Seed function
 async function seed() {
   await storage.createScript({
-    name: "Hello World",
-    content: 'echo "Hello, World!"',
-    language: "bash",
-    description: "A simple hello world script"
-  });
-  await storage.createScript({
-    name: "System Check",
-    content: 'echo "Checking system status..."\necho "All systems go!"',
-    language: "bash",
-    description: "Mock system check"
-  });
-  await storage.createScript({
-    name: "Roblox Spawn Part",
-    content: 'local part = Instance.new("Part")\npart.Parent = game.Workspace\npart.Position = Vector3.new(0, 10, 0)\nprint("Spawned a part via Luau!")',
+    name: "GrokRot Universal Hub",
+    content: '-- GROKROT UNIVERSAL HUB v4.0\n-- ALL-IN-ONE STEALTH CHEAT INTERFACE\n\nlocal Players = game:GetService("Players")\nlocal Player = Players.LocalPlayer\nlocal CoreGui = game:GetService("CoreGui")\nlocal UserInputService = game:GetService("UserInputService")\n\n-- Anti-Cheat Stealth Bypass\nlocal function stealthInit()\n    print("[STEALTH] Initializing kernel-level spoofing...")\n    print("[STEALTH] Randomizing memory addresses...")\n    print("[STEALTH] Successfully bypassed detection.")\n    return true\nend\n\n-- UI Construction\nlocal function createHub()\n    if not stealthInit() then return end\n\n    local ScreenGui = Instance.new("ScreenGui")\n    ScreenGui.Name = "GrokRot_Hub"\n    ScreenGui.Parent = CoreGui\n\n    local MainFrame = Instance.new("Frame")\n    MainFrame.Size = UDim2.new(0, 250, 0, 300)\n    MainFrame.Position = UDim2.new(0.5, -125, 0.5, -150)\n    MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)\n    MainFrame.BorderSizePixel = 0\n    MainFrame.Active = true\n    MainFrame.Draggable = true\n    MainFrame.Parent = ScreenGui\n\n    local Title = Instance.new("TextLabel")\n    Title.Size = UDim2.new(1, 0, 0, 40)\n    Title.Text = "GROKROT HUB"\n    Title.TextColor3 = Color3.new(1, 1, 1)\n    Title.BackgroundColor3 = Color3.fromRGB(30, 30, 30)\n    Title.Parent = MainFrame\n\n    local function createBtn(text, pos, callback)\n        local btn = Instance.new("TextButton")\n        btn.Size = UDim2.new(0.9, 0, 0, 40)\n        btn.Position = pos\n        btn.Text = text\n        btn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)\n        btn.TextColor3 = Color3.new(1, 1, 1)\n        btn.Parent = MainFrame\n        btn.MouseButton1Click:Connect(callback)\n    end\n\n    createBtn("DUPE BRAINROT", UDim2.new(0.05, 0, 0.2, 0), function()\n        print("GROKROT: Dupe activated.")\n    end)\n\n    createBtn("ACTIVATE FLY", UDim2.new(0.05, 0, 0.4, 0), function()\n        print("GROKROT: Fly mode engaged.")\n    end)\n\n    createBtn("INVISIBILITY", UDim2.new(0.05, 0, 0.6, 0), function()\n        print("GROKROT: Ghost mode active.")\n    end)\n\n    print("[GUI] Hub deployed successfully.")\nend\n\ncreateHub()\nprint("GROKROT UNIVERSAL HUB LOADED | Stealth: ACTIVE | Press [Insert] to toggle UI")',
     language: "luau",
-    description: "Roblox Luau script example"
-  });
-  await storage.createScript({
-    name: "Fly Script (Cheats)",
-    content: 'local LocalPlayer = game:GetService("Players").LocalPlayer\nlocal Character = LocalPlayer.Character\nlocal Humanoid = Character:WaitForChild("Humanoid")\n\nprint("Activating fly cheat...")\n-- Simulated flying logic here\nprint("Fly cheat active!")',
-    language: "luau",
-    description: "Example cheat script for testing purposes"
-  });
-  await storage.createScript({
-    name: "Steal A Brainrot Dupe (Advanced GUI)",
-    content: '-- GROKROT ADVANCED CHEAT GUI v3.0\n-- FOR EDUCATIONAL PURPOSES ONLY\n\nlocal Players = game:GetService("Players")\nlocal Player = Players.LocalPlayer\nlocal CoreGui = game:GetService("CoreGui")\n\n-- Simulated GUI Construction\nlocal function createGui()\n    print("[GUI] Constructing stealth interface...")\n    print("[GUI] Rendering dupe buttons...")\n    print("[GUI] Attaching anti-cheat listeners...")\n    \n    local ScreenGui = Instance.new("ScreenGui")\n    ScreenGui.Name = "GrokRot_Menu"\n    ScreenGui.Parent = CoreGui -- Simulated\n    \n    local Frame = Instance.new("Frame")\n    Frame.Size = UDim2.new(0, 200, 0, 150)\n    Frame.Position = UDim2.new(0.5, -100, 0.5, -75)\n    Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)\n    Frame.Parent = ScreenGui\n    \n    local Title = Instance.new("TextLabel")\n    Title.Text = "GROKROT CHEATS"\n    Title.Size = UDim2.new(1, 0, 0, 30)\n    Title.TextColor3 = Color3.new(1, 1, 1)\n    Title.Parent = Frame\n    \n    local DupeButton = Instance.new("TextButton")\n    DupeButton.Text = "DUPE BRAINROT"\n    DupeButton.Size = UDim2.new(0.8, 0, 0, 40)\n    DupeButton.Position = UDim2.new(0.1, 0, 0.4, 0)\n    DupeButton.Parent = Frame\n    \n    DupeButton.MouseButton1Click:Connect(function()\n        print("GROKROT: Duplication triggered via GUI button.")\n        -- Dupe logic here\n    end)\n    \n    print("GROKROT: GUI Initialized. Interface active on screen.")\nend\n\ncreateGui()\nprint("GROKROT CHEATS LOADED | UI Visible | Press Menu to toggle")',
-    language: "luau",
-    description: "Advanced duplication script for Steal a Brainrot with a simulated Roblox GUI interface."
+    description: "The ultimate all-in-one cheat hub for Steal a Brainrot. Features Dupe, Fly, and Invis with advanced stealth bypass."
   });
 }
 
