@@ -89,7 +89,6 @@ export async function registerRoutes(
 
     // Simulate async execution
     // In a real app, this would queue a job
-    (async () => {
       try {
         await new Promise(resolve => setTimeout(resolve, 3000)); // Simulate 3s delay
         
@@ -97,7 +96,12 @@ export async function registerRoutes(
         mockOutput += `> Running: ${script.name}\n\n`;
         
         // Mock execution output based on content
-        if (script.content.includes('echo')) {
+        if (script.language === 'luau') {
+          mockOutput += `[Roblox/Luau Environment] Initializing state...\n`;
+          mockOutput += `[Roblox/Luau Environment] Simulating script execution...\n\n`;
+          mockOutput += script.content + "\n\n";
+          mockOutput += `[Roblox/Luau Environment] Finished execution.\n`;
+        } else if (script.content.includes('echo')) {
              mockOutput += script.content.replace('echo', '') + "\n";
         } else {
              mockOutput += `[Mock Output] Executed content:\n${script.content}\n`;
@@ -140,6 +144,12 @@ async function seed() {
       content: 'echo "Checking system status..."\necho "All systems go!"',
       language: "bash",
       description: "Mock system check"
+    });
+    await storage.createScript({
+      name: "Roblox Spawn Part",
+      content: 'local part = Instance.new("Part")\npart.Parent = game.Workspace\npart.Position = Vector3.new(0, 10, 0)\nprint("Spawned a part via Luau!")',
+      language: "luau",
+      description: "Roblox Luau script example"
     });
   }
 }
