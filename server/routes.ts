@@ -134,39 +134,36 @@ export async function registerRoutes(
 
 // Seed function
 async function seed() {
-  const existing = await storage.getScripts();
-  if (existing.length === 0) {
-    await storage.createScript({
-      name: "Hello World",
-      content: 'echo "Hello, World!"',
-      language: "bash",
-      description: "A simple hello world script"
-    });
-    await storage.createScript({
-      name: "System Check",
-      content: 'echo "Checking system status..."\necho "All systems go!"',
-      language: "bash",
-      description: "Mock system check"
-    });
-    await storage.createScript({
-      name: "Roblox Spawn Part",
-      content: 'local part = Instance.new("Part")\npart.Parent = game.Workspace\npart.Position = Vector3.new(0, 10, 0)\nprint("Spawned a part via Luau!")',
-      language: "luau",
-      description: "Roblox Luau script example"
-    });
-    await storage.createScript({
-      name: "Fly Script (Cheats)",
-      content: 'local LocalPlayer = game:GetService("Players").LocalPlayer\nlocal Character = LocalPlayer.Character\nlocal Humanoid = Character:WaitForChild("Humanoid")\n\nprint("Activating fly cheat...")\n-- Simulated flying logic here\nprint("Fly cheat active!")',
-      language: "luau",
-      description: "Example cheat script for testing purposes"
-    });
-    await storage.createScript({
-      name: "Dupe Items Script",
-      content: '-- WARNING: This is a simulation for educational purposes\nlocal player = game:GetService("Players").LocalPlayer\nlocal backpack = player:WaitForChild("Backpack")\n\nfunction dupe(itemName)\n    local item = backpack:FindFirstChild(itemName)\n    if item then\n        for i = 1, 10 do\n            item:Clone().Parent = backpack\n        end\n        print("Successfully duplicated " .. itemName)\n    else\n        print("Item not found: " .. itemName)\n    end\nend\n\ndupe("Brainrot")',
-      language: "luau",
-      description: "Simulation of an item duplication script for Steal a Brainrot"
-    });
-  }
+  await storage.createScript({
+    name: "Hello World",
+    content: 'echo "Hello, World!"',
+    language: "bash",
+    description: "A simple hello world script"
+  });
+  await storage.createScript({
+    name: "System Check",
+    content: 'echo "Checking system status..."\necho "All systems go!"',
+    language: "bash",
+    description: "Mock system check"
+  });
+  await storage.createScript({
+    name: "Roblox Spawn Part",
+    content: 'local part = Instance.new("Part")\npart.Parent = game.Workspace\npart.Position = Vector3.new(0, 10, 0)\nprint("Spawned a part via Luau!")',
+    language: "luau",
+    description: "Roblox Luau script example"
+  });
+  await storage.createScript({
+    name: "Fly Script (Cheats)",
+    content: 'local LocalPlayer = game:GetService("Players").LocalPlayer\nlocal Character = LocalPlayer.Character\nlocal Humanoid = Character:WaitForChild("Humanoid")\n\nprint("Activating fly cheat...")\n-- Simulated flying logic here\nprint("Fly cheat active!")',
+    language: "luau",
+    description: "Example cheat script for testing purposes"
+  });
+  await storage.createScript({
+    name: "Dupe Items Script",
+    content: '-- WARNING: This is a simulation for educational purposes\nlocal player = game:GetService("Players").LocalPlayer\nlocal backpack = player:WaitForChild("Backpack")\n\nfunction dupe(itemName)\n    local item = backpack:FindFirstChild(itemName)\n    if item then\n        for i = 1, 10 do\n            item:Clone().Parent = backpack\n        end\n        print("Successfully duplicated " .. itemName)\n    else\n        print("Item not found: " .. itemName)\n    end\nend\n\ndupe("Brainrot")',
+    language: "luau",
+    description: "Simulation of an item duplication script for Steal a Brainrot"
+  });
 }
 
 // Call seed (in a real app, maybe conditional or separate script)
