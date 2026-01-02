@@ -29,6 +29,7 @@ export function ScriptCard({ script }: ScriptCardProps) {
     bash: "text-green-400 bg-green-400/10 border-green-400/20",
     python: "text-blue-400 bg-blue-400/10 border-blue-400/20",
     nodejs: "text-yellow-400 bg-yellow-400/10 border-yellow-400/20",
+    luau: "text-pink-400 bg-pink-400/10 border-pink-400/20",
   };
 
   const badgeClass = languageColors[script.language] || "text-gray-400 bg-gray-400/10 border-gray-400/20";

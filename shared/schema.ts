@@ -6,7 +6,7 @@ export const scripts = pgTable("scripts", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   content: text("content").notNull(),
-  language: text("language").notNull().default("bash"), // bash, python, nodejs, luau, luau, luau
+  language: text("language").notNull().default("bash"), // bash, python, nodejs, luau
   description: text("description"),
   createdAt: timestamp("created_at").defaultNow(),
 });

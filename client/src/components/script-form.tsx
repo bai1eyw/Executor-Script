@@ -76,6 +76,7 @@ export function ScriptForm({ script }: ScriptFormProps) {
                     <SelectItem value="bash">Bash / Shell</SelectItem>
                     <SelectItem value="python">Python 3</SelectItem>
                     <SelectItem value="nodejs">Node.js</SelectItem>
+                    <SelectItem value="luau">Roblox Luau</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
