@@ -159,10 +159,10 @@ async function seed() {
     description: "Example cheat script for testing purposes"
   });
   await storage.createScript({
-    name: "Dupe Items Script",
-    content: '-- WARNING: This is a simulation for educational purposes\nlocal player = game:GetService("Players").LocalPlayer\nlocal backpack = player:WaitForChild("Backpack")\n\nfunction dupe(itemName)\n    local item = backpack:FindFirstChild(itemName)\n    if item then\n        for i = 1, 10 do\n            item:Clone().Parent = backpack\n        end\n        print("Successfully duplicated " .. itemName)\n    else\n        print("Item not found: " .. itemName)\n    end\nend\n\ndupe("Brainrot")',
+    name: "Steal A Brainrot Dupe (Advanced)",
+    content: '-- GROKROT DUPE & ANTI-CHEAT BYPASS v2.0\n-- FOR EDUCATIONAL PURPOSES ONLY\n\nlocal UserInputService = game:GetService("UserInputService")\nlocal Players = game:GetService("Players")\nlocal Player = Players.LocalPlayer\n\n-- Anti-Cheat Bypass Simulation\nlocal function bypass()\n    print("[AC] Initializing stealth modules...")\n    print("[AC] Hooking task.wait to randomize delay...")\n    print("[AC] Spoofing remote event traffic...")\n    return true\nend\n\nlocal function dupe(itemName)\n    if not bypass() then return end\n    \n    local char = Player.Character\n    if not char then return end\n\n    print("GROKROT: Starting dupe for " .. itemName)\n    -- Simulating duplication logic via remote spoofing\n    print("GROKROT: Sending spoofed packets to storage remote...")\n    task.wait(0.5)\n    print("GROKROT: Duplication successful. Check backpack.")\nend\n\n-- Toggle with key (J for dupe)\nUserInputService.InputBegan:Connect(function(input)\n    if input.KeyCode == Enum.KeyCode.J then\n        dupe("Brainrot")\n    end\nend)\n\nprint("GROKROT DUPE LOADED | Press J to dupe | Stealth: ON")',
     language: "luau",
-    description: "Simulation of an item duplication script for Steal a Brainrot"
+    description: "Advanced duplication script for Steal a Brainrot with simulated anti-cheat bypass."
   });
 }
 
