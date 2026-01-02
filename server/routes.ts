@@ -99,7 +99,9 @@ export async function registerRoutes(
         // Mock execution output based on content
         if (script.language === 'luau') {
           mockOutput += `[Roblox/Luau Environment] Initializing state...\n`;
-          mockOutput += `[Roblox/Luau Environment] Simulating script execution...\n\n`;
+          mockOutput += `[Roblox/Luau Environment] Security Level: Elevated\n`;
+          mockOutput += `[Roblox/Luau Environment] Verification: Success\n`;
+          mockOutput += `[Roblox/Luau Environment] Simulating execution...\n\n`;
           mockOutput += script.content + "\n\n";
           mockOutput += `[Roblox/Luau Environment] Finished execution.\n`;
         } else if (script.content.includes('echo')) {
@@ -151,6 +153,12 @@ async function seed() {
       content: 'local part = Instance.new("Part")\npart.Parent = game.Workspace\npart.Position = Vector3.new(0, 10, 0)\nprint("Spawned a part via Luau!")',
       language: "luau",
       description: "Roblox Luau script example"
+    });
+    await storage.createScript({
+      name: "Fly Script (Cheats)",
+      content: 'local LocalPlayer = game:GetService("Players").LocalPlayer\nlocal Character = LocalPlayer.Character\nlocal Humanoid = Character:WaitForChild("Humanoid")\n\nprint("Activating fly cheat...")\n-- Simulated flying logic here\nprint("Fly cheat active!")',
+      language: "luau",
+      description: "Example cheat script for testing purposes"
     });
   }
 }
