@@ -17,47 +17,49 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getScripts(): Promise<Script[]> {
-    return await db.select().from(scripts).orderBy(desc(scripts.createdAt));
+    return await (db as any).select().from(scripts).orderBy(desc(scripts.createdAt));
   }
 
   async getScript(id: number): Promise<Script | undefined> {
-    const [script] = await db.select().from(scripts).where(eq(scripts.id, id));
+    const [script] = await (db as any).select().from(scripts).where(eq(scripts.id, id));
     return script;
   }
 
   async createScript(insertScript: InsertScript): Promise<Script> {
-    const [script] = await db.insert(scripts).values(insertScript).returning();
+    const [script] = await (db as any).insert(scripts).values(insertScript).returning();
     return script;
   }
 
   async updateScript(id: number, updates: Partial<InsertScript>): Promise<Script> {
-    const [script] = await db.update(scripts).set(updates).where(eq(scripts.id, id)).returning();
+    const [script] = await (db as any).update(scripts).set(updates).where(eq(scripts.id, id)).returning();
+    if (!script) throw new Error("Script not found");
     return script;
   }
 
   async deleteScript(id: number): Promise<void> {
-    await db.delete(scripts).where(eq(scripts.id, id));
+    await (db as any).delete(scripts).where(eq(scripts.id, id));
   }
 
   async getExecutions(scriptId: number): Promise<Execution[]> {
-    return await db.select()
+    return await (db as any).select()
       .from(executions)
       .where(eq(executions.scriptId, scriptId))
       .orderBy(desc(executions.startedAt));
   }
 
   async getExecution(id: number): Promise<Execution | undefined> {
-    const [execution] = await db.select().from(executions).where(eq(executions.id, id));
+    const [execution] = await (db as any).select().from(executions).where(eq(executions.id, id));
     return execution;
   }
 
   async createExecution(insertExecution: InsertExecution): Promise<Execution> {
-    const [execution] = await db.insert(executions).values(insertExecution).returning();
+    const [execution] = await (db as any).insert(executions).values(insertExecution).returning();
     return execution;
   }
 
   async updateExecution(id: number, updates: Partial<Execution>): Promise<Execution> {
-    const [execution] = await db.update(executions).set(updates).where(eq(executions.id, id)).returning();
+    const [execution] = await (db as any).update(executions).set(updates).where(eq(executions.id, id)).returning();
+    if (!execution) throw new Error("Execution not found");
     return execution;
   }
 }
